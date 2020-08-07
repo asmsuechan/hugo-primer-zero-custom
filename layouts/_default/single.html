@@ -5,12 +5,22 @@
 
 
 {{ define "main" }}
+<!--
+<div id="breadcrumbs" class="entry-meta" style="font-style:normal;font-size:16px;">
+<a href="/">Home</a>
+{{ range (split .URL "/") }}
+    {{ if gt (len . ) 0 }}
+        / <a href="/{{ . }}">{{ humanize (replace . "posts" "blog") }}</a>
+    {{ end }}
+{{ end }}
+</div>
+-->
 <!-- Title -->
 <div class="Subhead">
   <div class="Subhead-heading">
-    <div class="h1 mt-3 mb-1">{{ .Title }}</div>
+    <div class="h1 mt-4 mb-2">{{ .Title }}</div>
   </div>
-  <div class="Subhead-description">
+  <div class="Subhead-description mb-2">
     {{ partial "taxonomy.html" . }}
 
     {{ if ( default true .Params.showDate ) }}
