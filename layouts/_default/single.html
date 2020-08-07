@@ -118,4 +118,15 @@
       <!-- Do not share -->
     </div>
   {{ end }}
+  <div class="my-4">
+    <h3>新着記事</h3>
+    <ul>
+      {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
+        <li class="my-2">
+          <b><a href="{{.RelPermalink}}">{{.Title}}</a></b>
+          <time>{{.Date.Format "2006-01-02"}}</time>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
 {{ end }}
