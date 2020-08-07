@@ -11,13 +11,13 @@
   {{ .Content }}
 
   {{ range .Paginator.Pages }}
-  <div>
+  <div class="border-bottom py-3">
     <div>
       <a href="{{ .RelPermalink }}">
-        <h3>{{ .Title }}</h3>
+        <h3 class="mt-4 mb-2">{{ .Title }}</h3>
       </a>
-      <small>{{ .Permalink }}</small>
-      {{ .Date.Format "2006-01-02" }}
+      <!--<small>{{ .Permalink }}</small>-->
+      <small>{{ .Date.Format "2006-01-02" }}</small>
     </div>
     {{ .Summary }}
   </div>
