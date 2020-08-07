@@ -51,6 +51,22 @@
       </ul>
     </div>
   {{ end }}
+
+  <!--
+  {{- range .Params.authors }}
+    {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+    <div>
+      <span>書いた人</span>
+      <figure>
+        <img src="{{ .Params.photo }}" alt=""/>
+        <figcaption>
+          <a href="{{ .Permalink }}">{{ .Params.name }}</a>
+        </figcaption>
+      </figure>
+    </div>
+    {{ end }}
+  {{ end }}
+  -->
   </section>
 
   <section>
