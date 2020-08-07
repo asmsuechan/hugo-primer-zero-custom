@@ -10,7 +10,7 @@ weight: 1
 This theme would be a perfect fit if you are used to GitHub style pages.  
 Hugo-Primer is a theme based on GitHub style css: Primer, and adds some blog like features onto it.
 
-Visit the [homepage](https://github.com/qqhann/hugo-primer) to try it now, and leave me a star if you like it!
+Visit the [homepage](https://github.com/qqhann/hugo-primer-zero-custom) to try it now, and leave me a star if you like it!
 
 ## ExampleSite
 
@@ -19,8 +19,8 @@ Use the `exampleSite` as a reference, or copy to quick satart.
 As you navicate through the exampleSite menu,
 "About" and "Blog Example" contents are from hugoBasicExample provided by hugo.
 
-"Hugo-Primer" is provided by hugo-primer.
-And all of them are optimized to demonstrate how to use hugo-primer.
+"Hugo-Primer" is provided by hugo-primer-zero-custom.
+And all of them are optimized to demonstrate how to use hugo-primer-zero-custom.
 
 Notice how we utilize `menu: "main"` in the frontmatter.
 And `weight: 1` decides the order they appear in the nav bar.
