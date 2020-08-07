@@ -17,7 +17,7 @@
     <meta name="url" property="og:url" content="https://kagglenote.com">
     <meta name="title" property="og:title" content="Kaggle Note">
     {{ if .Description }}
-    <meta name="description" property="og:description" content="{{ .Description }}|{{ .Site.Params.Description }}">
+    <meta name="description" property="og:description" content="{{ .Description }}">
     {{ else if .IsPage }}
     <meta name="description" property="og:description" content="{{ .Summary | plainify }}|{{ .Site.Params.Description }}">
     {{ else }}
