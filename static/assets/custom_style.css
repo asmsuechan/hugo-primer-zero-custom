@@ -8,6 +8,10 @@
   border-bottom: solid 1px #cccccc;
 }
 
+.new-article-list {
+  list-style-type: none;
+}
+
 
 #___gcse_0,
 #___gcse_1{

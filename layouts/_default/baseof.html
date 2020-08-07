@@ -82,18 +82,8 @@
             {{ end }}
           </div>
           {{ end }}
+          {{ partial "newarticles.html" . }}
         </aside>
-        <div class="my-4">
-          <h4>新着記事</h4>
-          <ul>
-            {{ range first 5 (where .Site.RegularPages.ByDate.Reverse ".Draft" "!=" true) }}
-              <li class="my-2">
-                <b><a href="{{.RelPermalink}}">{{.Title}}</a></b>
-                <time>{{.Date.Format "2006-01-02"}}</time>
-              </li>
-            {{ end }}
-          </ul>
-        </div>
       </div>
 
       <div id="footer" class="pt-2 pb-3 bg-white text-center">
