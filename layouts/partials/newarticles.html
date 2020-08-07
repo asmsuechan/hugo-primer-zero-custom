@@ -1,5 +1,5 @@
 <div class="my-2">
-  <h4>新着記事</h4>
+  <b>新着記事</b>
   <ul>
     {{ range first 5 (where .Site.RegularPages.ByDate.Reverse ".Draft" "!=" true) }}
       <li class="my-2 new-article-list">
