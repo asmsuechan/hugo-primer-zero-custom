@@ -40,6 +40,17 @@
   <!-- Content -->
   <section class="pb-6 mb-3 border-bottom">
     {{ .Content }}
+    {{ $related := .Site.RegularPages.Related . | first 5 }}
+    {{ with $related }}
+    <div class="related-articles pt-4 mt-5">
+      <h3>関連記事</h3>
+      <ul>
+      	{{ range . }}
+      	<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      	{{ end }}
+      </ul>
+    </div>
+  {{ end }}
   </section>
 
   <section>
