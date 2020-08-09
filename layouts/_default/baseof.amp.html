@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html ⚡ lang="ja">
+    <head>
+        {{ .Scratch.Set "output-format" "amp" }}
+
+        <meta charset="utf-8" />
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <title>{{ .Title}}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}</title>
+        {{ with .OutputFormats.Get "html" }}
+            <link rel="canonical" href="{{ .Permalink }}" />
+        {{ end }}
+        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "NewsArticle",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "{{ with .OutputFormats.Get "html" }}{{ .Permalink | safeJS }}{{ end }}"
+                },
+                "headline": {{ .Title }},
+                "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05" }}},
+                "author": {
+                    "@type": "Person",
+                    "name": {{ with .Site.Params.author }}{{ .  }}{{ end }}
+                },
+                "publisher": {
+                    "name": "{{ .Site.Title  }}",
+                    "logo": {
+                      "@type": "ImageObject",
+                      "url": ""
+                    }
+                }
+            }
+        </script>
+        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+        {{ $style := resources.Get "style.css" | minify }}
+        {{ $css_content := $style.Content }}
+        {{ $css_content = replace $css_content `@charset "UTF-8"` "" }}
+        <style amp-custom>{{ $css_content | safeCSS }}</style>
+        {{ $custom_style := resources.Get "custom_style.css" | minify }}
+        {{ $custom_css_content := $custom_style.Content }}
+        {{ $custom_css_content = replace $custom_css_content `@charset "UTF-8"` "" }}
+        <style amp-custom>{{ $custom_css_content | safeCSS }}</style>
+        {{ $syntax_style := resources.Get "syntax.css" | minify }}
+        {{ $syntax_css_content := $syntax_style.Content }}
+        {{ $syntax_css_content = replace $syntax_css_content `@charset "UTF-8"` "" }}
+        <style amp-custom>{{ $syntax_css_content | safeCSS }}</style>
+        {{ $primer_style := resources.Get "primer-build.css" | minify }}
+        {{ $primer_css_content := $primer_style.Content }}
+        {{ $primer_css_content = replace $primer_css_content `@charset "UTF-8"` "" }}
+        <style amp-custom>{{ $primer_css_content | safeCSS }}</style>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    </head>
+    <body>
+    <div id="holy" class="container-lg bg-white h-100">
+      <div id="header" class="px-1 bg-white">
+        {{ partial "header.html" . }}
+      </div>
+
+      <div role="main" id="main" class="holy-main markdown-body px-4 bg-white">
+        {{ block "content" . }}
+            {{ .Content }}
+        {{ end }}
+      </div>
+
+      <div id="side" class="pr-1 bg-white">
+        <aside class="pr-3">
+          {{ block "side" . }}
+          <div>
+            <div class="insite-search pb-2 mt-4 mb-2">
+              <span class="pb-4"><b>サイト内検索</b></span>
+            </div>
+            <script async src="https://cse.google.com/cse.js?cx=008255943023163310552:cwlyza2xaua"></script>
+            <div class="gcse-searchbox-only"></div>
+          </div>
+          <div class="Box Box--blue p-2 mb-3 mt-5">
+            <a href="{{ "tags/" | relLangURL }}" class="link-gray-dark">
+              <h4>Tags</h4>
+            </a>
+            {{ range $name, $items := .Site.Taxonomies.tags }}
+            <span class="css-truncate no-wrap m-1 pl-1">
+              <a href="{{ "tags/" | relLangURL }}{{ $name | urlize | lower }}" class="link-gray text-emphasized css-truncate-target"><span class="">{{ $name | humanize }}</span></a>
+              <span class="text-right Counter">{{ len $items }}</span>
+            </span>
+            {{ end }}
+          </div>
+          {{ end }}
+          {{ partial "newarticles.html" . }}
+        </aside>
+      </div>
+
+      <div id="footer" class="pt-2 pb-3 bg-white text-center">
+        {{ partial "footer.html" . }}
+      </div>
+    </div>
+
+    {{ if or .Params.math ( default true .Site.Params.math ) }}
+    <!-- Scripts -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+    {{ end }}
+
+    </body>
+</html>
