@@ -34,19 +34,16 @@
         {{ $style := resources.Get "style.css" | minify }}
         {{ $css_content := $style.Content }}
         {{ $css_content = replace $css_content `@charset "UTF-8"` "" }}
-        <style amp-custom>{{ $css_content | safeCSS }}</style>
         {{ $custom_style := resources.Get "custom_style.css" | minify }}
         {{ $custom_css_content := $custom_style.Content }}
         {{ $custom_css_content = replace $custom_css_content `@charset "UTF-8"` "" }}
-        <style amp-custom>{{ $custom_css_content | safeCSS }}</style>
         {{ $syntax_style := resources.Get "syntax.css" | minify }}
         {{ $syntax_css_content := $syntax_style.Content }}
         {{ $syntax_css_content = replace $syntax_css_content `@charset "UTF-8"` "" }}
-        <style amp-custom>{{ $syntax_css_content | safeCSS }}</style>
         {{ $primer_style := resources.Get "primer-build.css" | minify }}
         {{ $primer_css_content := $primer_style.Content }}
         {{ $primer_css_content = replace $primer_css_content `@charset "UTF-8"` "" }}
-        <style amp-custom>{{ $primer_css_content | safeCSS }}</style>
+        <style amp-custom>{{ $css_content | safeCSS }}{{ $custom_css_content | safeCSS }}{{ $syntax_css_content | safeCSS }}{{ $primer_css_content | safeCSS }}</style>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     </head>
     <body>
@@ -64,13 +61,6 @@
       <div id="side" class="pr-1 bg-white">
         <aside class="pr-3">
           {{ block "side" . }}
-          <div>
-            <div class="insite-search pb-2 mt-4 mb-2">
-              <span class="pb-4"><b>サイト内検索</b></span>
-            </div>
-            <script async src="https://cse.google.com/cse.js?cx=008255943023163310552:cwlyza2xaua"></script>
-            <div class="gcse-searchbox-only"></div>
-          </div>
           <div class="Box Box--blue p-2 mb-3 mt-5">
             <a href="{{ "tags/" | relLangURL }}" class="link-gray-dark">
               <h4>Tags</h4>
