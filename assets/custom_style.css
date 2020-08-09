@@ -2,3 +2,7 @@
 .Subhead {
   border-bottom: 2px #002e63 solid;
 }
+
+.ampImg__Wrapper {
+  object-fit: contain;
+}
