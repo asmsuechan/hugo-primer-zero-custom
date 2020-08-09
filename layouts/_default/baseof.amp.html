@@ -20,11 +20,7 @@
                     "@id": "{{ with .OutputFormats.Get "html" }}{{ .Permalink | safeJS }}{{ end }}"
                 },
                 "headline": {{ .Title }},
-                "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05" }}},
-                "author": {
-                    "@type": "Person",
-                    "name": {{ with .Site.Params.author }}{{ .  }}{{ end }}
-                },
+                "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05" }},
                 "publisher": {
                     "name": "{{ .Site.Title  }}",
                     "logo": {
