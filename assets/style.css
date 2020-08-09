@@ -1,4 +1,3 @@
-/* custom css here */
 html,
 body {
   height: 100%;
@@ -9,8 +8,6 @@ body {
 
 #holy {
   display: grid;
-  /* auto: as wide as its content
-   * fr: all available space */
   grid-template-columns: 1fr auto;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
@@ -39,31 +36,6 @@ aside {
   max-height: 100vh;
   display: block;
   overflow-y: auto;
-}
-
-/* Menu */
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.dropdown:hover .dropdown-content {
-  visibility: visible;
-  opacity: 1;
-}
-.dropdown-content:hover {
-  visibility: visible;
-  opacity: 1;
-}
-.dropdown-content {
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.2s ease;
-  top: 55px;
-  right: 0;
-  white-space: nowrap;
-  min-width: 160px;
-  z-index: 1;
 }
 
 /* TOC */
