@@ -25,7 +25,7 @@
               <em class="current selected" aria-current="true">{{ .PageNumber }}</em>
             {{ else }}
               <!-- .URL -->
-              <a href="{{ .URL }}">{{ .PageNumber }}</a>
+              <a class="pagination-link" href="{{ .URL }}">{{ .PageNumber }}</a>
             {{ end }}
           {{ else if ($.Scratch.Get "__paginator.shouldEllipse") }}
             <span class="gap">…</span>

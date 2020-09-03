@@ -34,7 +34,7 @@
         {{ end }}
 
         {{ range .Paginator.Pagers }}
-          <a href="{{ .URL }}">
+          <a class="pagination-link" href="{{ .URL }}">
             {{ .PageNumber }}
           </a>
         {{ end }}

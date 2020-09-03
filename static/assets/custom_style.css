@@ -64,3 +64,7 @@ td.gsc-search-button{
 .gsc-search-box-tools .gsc-search-box .gsc-input{
     padding-right: 0;
 }
+
+.pagination-link {
+  padding: 7px 18px !important;
+}
