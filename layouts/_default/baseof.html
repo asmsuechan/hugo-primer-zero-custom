@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="{{ `assets/primer-build.css` | relURL }}">
     <link rel="stylesheet" href="{{ `assets/style.css` | relURL }}">
     <link rel="stylesheet" href="{{ `assets/custom_style.css` | relURL }}">
-    <!--<script data-ad-client="ca-pub-9794965696431345" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
+    <script data-ad-client="ca-pub-9794965696431345" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     {{ range .AlternativeOutputFormats -}}
         <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
     {{ end -}}
