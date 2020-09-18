@@ -45,6 +45,9 @@
         {{ $primer_css_content = replace $primer_css_content `@charset "UTF-8"` "" }}
         <style amp-custom>{{ $css_content | safeCSS }}{{ $custom_css_content | safeCSS }}{{ $syntax_css_content | safeCSS }}{{ $primer_css_content | safeCSS }}</style>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <script async custom-element="amp-auto-ads"
+                src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+        </script>
     </head>
     <body>
     <div id="holy" class="container-lg bg-white h-100">
